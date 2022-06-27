@@ -1,0 +1,7 @@
+{% for mains in mains.all %}
+    <h1>제목:{{ mains.title }}<h1>
+    <h3>작성자:{{ mains.people }}<h3>
+    <p>날짜,시간:{{ mains.pub_date }}</p>
+    <p>본문:{{ mains.body }}</p>
+    <p>오늘의 기분:{{ mains.how }}</p>
+{% endfor %}
