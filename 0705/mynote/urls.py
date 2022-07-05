@@ -1,4 +1,4 @@
-"""djproject URL Configuration
+"""mynote URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/4.0/topics/http/urls/
@@ -15,12 +15,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-import djapp.views
+import mynoteapp.views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('' , djapp.views.index, name = 'index'),
-    path('create/', djapp.views.create, name = 'create'),
-    path('read/', djapp.views.read, name = 'read'),
-    path('detail/<str:id>/', djapp.views.detail, name = 'detail'),
+    path('' , mynoteapp.views.main, name = 'main'),
+    path('write/' , mynoteapp.views.write, name = 'write'),
+    path('read/' , mynoteapp.views.read, name = 'read'),
+    path('detail/<str:id>/' , mynoteapp.views.detail, name = 'detail'),
 ]
