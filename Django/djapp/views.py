@@ -10,7 +10,7 @@ def index(request):
 
 def create(request):
         if (request.method == 'POST'):
-            form = BlogForm(request.POST)
+            form = BlogForm(request.POST, request.FILES)
             if form.is_valid():
                     form = form.save(commit=False)
                     form.pub_date = timezone.now()
@@ -25,4 +25,19 @@ def read(request):
 def detail(request, id):
     blog = get_object_or_404(Blog, id=id)
     return render(request, 'detail.html', {'blog' :blog})
-    
+def edit(request , id):
+        blog = get_object_or_404(Blog, id=id)
+        if (request.method == 'POST'):
+            form = BlogForm(request.POST)
+            if form.is_valid():
+                    form = form.save(commit=False)
+                    form.save()
+                    return redirect('read')
+        else:
+            form = BlogForm(instance=blog)
+            return render(request, 'edit.html' , {'form':form})
+def delete(request, id):
+    blog = get_object_or_404(Blog, id=id)           
+    blog.delete()
+    return redirect('read')
+           

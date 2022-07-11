@@ -16,6 +16,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 import djapp.views
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -23,4 +25,8 @@ urlpatterns = [
     path('create/', djapp.views.create, name = 'create'),
     path('read/', djapp.views.read, name = 'read'),
     path('detail/<str:id>/', djapp.views.detail, name = 'detail'),
-]
+    path('edit/<str:id>/', djapp.views.edit, name = 'edit'),
+    path('delete/<str:id>/', djapp.views.delete, name = 'delete'),
+ ] + static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
+  
+

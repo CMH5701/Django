@@ -12,7 +12,7 @@
                             <div class="bg-faded rounded p-5">
                                 <h2 class="section-heading mb-4">
                                     <span class="section-heading-upper">Strong Coffee, Strong Roots</span>
-                                    <span class="section-heading-lower">About Our Cafe</span>
+                                    <span class="section-heading-lower">글 목록 페이지</span>
                                 </h2>
                                 <p>{% for obj in obj.all %}
                                     <a href = "{% url 'detail' obj.id %}">{{obj.title}}</a>
@@ -20,9 +20,9 @@
                                     <p>{{obj.body}}</p><br>
                                 <p class="mb-0">
                                     <p>작성자 : {{obj.people}}</p><br>
-                <p>작성일 : {{obj.pub_date}}</p><br>
-                                </p>
-                {% endfor %}   
+                                    <img src="{{ obj.image.url }}" > 
+                                 <p>작성일 : {{obj.pub_date}}</p>
+                                    {% endfor %}   
             
                             </div>
                         </div>
