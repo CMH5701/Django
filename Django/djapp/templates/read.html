@@ -9,6 +9,7 @@
                 {% for blogs in blogs.all %}
                 <h3>제목 : <a href = "{% url 'detail' blogs.id %}">{{blogs.title}}</a></h3>
                 <p>작성일 : {{blogs.pub_date}}</p>
+                <img src = "{{blogs.image.url}}" >
                 {% endfor %}
                    
     
