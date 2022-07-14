@@ -1,0 +1,26 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block content %}
+<div class ="mymyong">
+<h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Portfolio</h2>
+<div class="divider-custom">
+        <div class="divider-custom-line"></div>
+        <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+        <div class="divider-custom-line"></div>
+    </div>
+       <h2>{{blog.title}}</h2>
+        {% if blog.image %}
+                <img src = "{{ blog.image.url }}" width = "250" height = "250">
+        {% endif %}
+        <br>
+        <h3>{{blog.body}}</h3>
+                <p>{{blog.writer}}</p>
+        <p>{{blog.pub_date}}</p>
+        <p>{{blog.feeling}}</p>
+
+</div>
+<div class = "campingman">
+<a class=mya  href = "{%url 'edit' blog.id %}">수정하기</a>
+<a class=mya href = "{%url 'delete' blog.id %}">삭제하기</a>
+</div class = "campingman">
+{% endblock %}
