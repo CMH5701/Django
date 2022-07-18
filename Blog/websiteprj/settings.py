@@ -32,7 +32,6 @@ def get_secret(setting, secrets = secrets):
     except KeyError:
         error_msg = "Set th {} environment variable".format(setting)
         raise ImproperlyConfigured(error_msg)
-
 SECRET_KEY = get_secret("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
@@ -52,7 +51,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'websiteapp'
 ]
-
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',

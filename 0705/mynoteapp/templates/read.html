@@ -15,7 +15,7 @@
                                     <span class="section-heading-lower">글 목록 페이지</span>
                                 </h2>
                                 <p>{% for obj in obj.all %}
-                                   <a href = "{% url 'detail' obj.id %}">{{obj.title}}</a>
+                                   <a class="btn btn-primary btn-xl" href = "{% url 'detail' obj.id %}">{{obj.title}}</a>
                                 </p>
                                     <p>{{obj.body}}</p><br>
                                 <p class="mb-0">
