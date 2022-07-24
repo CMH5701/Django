@@ -9,7 +9,9 @@
                 {% for blogs in blogs.all %}
                 <h3>제목 : <a href = "{% url 'detail' blogs.id %}">{{blogs.title}}</a></h3>
                 <p>작성일 : {{blogs.pub_date}}</p>
+                {% if blogs.image %}
                 <img src = "{{blogs.image.url}}" >
+                {% endif %}
                 {% endfor %}
                    
     

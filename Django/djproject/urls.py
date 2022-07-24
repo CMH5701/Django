@@ -27,6 +27,7 @@ urlpatterns = [
     path('detail/<str:id>/', djapp.views.detail, name = 'detail'),
     path('edit/<str:id>/', djapp.views.edit, name = 'edit'),
     path('delete/<str:id>/', djapp.views.delete, name = 'delete'),
+    path('hashtag/' , djapp.views.hashtag, name = 'hashtag'),   
  ] + static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
   
 
