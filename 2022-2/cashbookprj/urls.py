@@ -1,7 +1,7 @@
-"""djproject URL Configuration
+"""cashbookprj URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/4.0/topics/http/urls/
+    https://docs.djangoproject.com/en/4.1/topics/http/urls/
 Examples:
 Function views
     1. Add an import:  from my_app import views
@@ -15,19 +15,18 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+import cashbookapp.views
+from cashbookprj.settings import MEDIA_ROOT
 from django.conf import settings
 from django.conf.urls.static import static
-import djapp.views
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('' , djapp.views.index, name = 'index'),
-    path('create/', djapp.views.create, name = 'create'),
-    path('read/', djapp.views.read, name = 'read'),
-    path('detail/<str:id>/', djapp.views.detail, name = 'detail'),
-    path('edit/<str:id>/', djapp.views.edit, name = 'edit'),
-    path('delete/<str:id>/', djapp.views.delete, name = 'delete'),
-    path('hashtag/' , djapp.views.hashtag, name = 'hashtag'),
- ] + static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
-  
-
+    path('', cashbookapp.views.main , name = 'main'),
+    path('write/', cashbookapp.views.write , name = 'write'),
+    path('read/', cashbookapp.views.read , name = 'read'),
+    path('detail/<str:id>', cashbookapp.views.detail , name = 'detail'),
+    path('edit/<str:id>', cashbookapp.views.edit , name = 'edit'),
+    path('delete/<str:id>', cashbookapp.views.delete , name = 'delete'),
+]+ static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)

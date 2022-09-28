@@ -28,6 +28,14 @@
                 <li class="sidebar-nav-item"><a href="{% url 'create' %}">Create</a></li>
                 <li class="sidebar-nav-item"><a href="{% url 'read' %}">Read</a></li>
                 <li class="sidebar-nav-item"><a href="{% url 'hashtag' %}">Hashtag</a></li>
+                {%if user.is_active %}
+                <li class="sidebar-nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" >{{ user.name }}님 환영합니다.</a></li>
+                <li class="sidebar-nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href = "{% url 'logout' %}">로그아웃</a></li>
+                
+                {% else %}
+                <li class="sidebar-nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href = "{% url 'login'%}">로그인</a></li>
+                <li class="sidebar-nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href = "{% url 'signup'%}">회원가입</a></li>
+                {% endif %}
 
                <!--<li class="sidebar-nav-item"><a href="#portfolio">Portfolio</a></li>
                 <li class="sidebar-nav-item"><a href="#contact">Contact</a></li> --> 
